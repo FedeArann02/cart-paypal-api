@@ -1,7 +1,6 @@
 const { Pool } = require("pg")
 const dotenv = require("dotenv")
 const fs = require("fs")
-const path = require("path")
 
 const pool = new Pool({
     host: process.env.DB_HOST,
@@ -15,6 +14,7 @@ const pool = new Pool({
     }
 })
 
+//Prueba de conexión
 pool.connect((error, client, release) => {
     if (error) {
         console.log("Error de conexion", error.stack)
