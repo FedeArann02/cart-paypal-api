@@ -28,8 +28,8 @@ const deleteSale = async (id) => {
 
 module.exports = {
     getAllSales,
-    getSaleById,
+    getSaleByUserId,
     createSale,
-    updateSale,
+    updateSaleState,
     deleteSale
 }
