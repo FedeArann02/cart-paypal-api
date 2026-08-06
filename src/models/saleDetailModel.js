@@ -1,11 +1,6 @@
 const pool = require("../config/db")
 const table = "sales_detail"
 
-const getAllSalesDetail = async () => {
-    const { rows } = await pool.query(`SELECT * FROM ${table}`)
-    return rows;
-}
-
 const getSaleDetailById = async (id) => {
     const { rows } = await pool.query(`SELECT * FROM ${table} WHERE id = $1`, [id])
     return rows[0];
@@ -17,7 +12,6 @@ const createSaleDetail = async (id_sales, id_product, description, price_sale, a
 }
 
 module.exports = {
-    getAllSalesDetail,
     getSaleDetailById,
     createSaleDetail,
 }
