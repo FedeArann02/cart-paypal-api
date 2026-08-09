@@ -5,6 +5,6 @@ const saleDetailController = require("../controllers/saleDetailController.js");
 const authenticate = require("../middleware/authenticate.js")
 
 router.post("/", authenticate, saleController.createSale)
-router.post("/item", authenticate, saleDetailController.createSaleDetail)
+router.post("/item/:id_user", authenticate, saleDetailController.createSaleDetail)
 
 module.exports = router;
