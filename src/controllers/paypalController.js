@@ -35,9 +35,9 @@ const createPayment = async (req, res, next) => {
 
 const executePayment = async (req, res, next) => {
     const { sale_id } = req.params
-    const { paymentId, payerId } = req.query
+    const { paymentId, PayerID } = req.query
     const execute_payment_json = {
-        payer_id: payerId,
+        payer_id: PayerID,
         transactions: [{
             amount: {
                 currency: "USD",
