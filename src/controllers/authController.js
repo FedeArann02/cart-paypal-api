@@ -3,7 +3,7 @@ No requiere un modelo, ya que las operaciones de registro e inicio de sesión
 son gestionadas directamente por Supabase Auth. */
 
 const supabase = require("../config/supabase")
-const { createUser } = require("../models/UserModel")
+const { createUser } = require("../models/UserModel") //usamos models para evitar vulnerabilidades que el usuario pueda aprovechar.
 
 const signUpNewEmail = async (req, res) => {
     const { email, password } = req.body
@@ -16,7 +16,9 @@ const signUpNewEmail = async (req, res) => {
         id_auth_supabase: data.user.id,
         name: "generico"
     }
-    await createUser(pUser)
+    const {role, id_auth_supabase, name} = pUser
+
+    await createUser(role, id_auth_supabase, name)
 }
 
 const signInNewSession = async (req, res) => {

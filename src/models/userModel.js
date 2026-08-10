@@ -6,6 +6,11 @@ const showRoleByUserId = async (idAuthSupabase) => {
     return rows[0]?.role
 }
 
+const getAllUsers = async () => {
+    const { rows } = await pool.query(`SELECT * FROM ${table}`)
+    return rows
+}
+
 const getUserBySupabaseId = async (idAuthSupabase) => {
     const { rows } = await pool.query(`SELECT * FROM ${table} WHERE id_auth_supabase = $1`, [idAuthSupabase])
     return rows[0]
@@ -17,6 +22,7 @@ const createUser = async (role, id_auth_supabase, name) => {
 }
 
 module.exports = { 
+    getAllUsers,
     showRoleByUserId,
     getUserBySupabaseId,
     createUser

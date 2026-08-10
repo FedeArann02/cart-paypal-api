@@ -10,6 +10,15 @@ const getUserBySupabaseId = async (req, res, next) => {
     }
 }
 
+const getAllUsers = async (req, res, next) => {
+    try {
+        const response = await userModel.getAllUsers();
+        res.status(201).json(response)
+    } catch (error) {
+        next(error)
+    }
+}
+
 const createUser = async (req, res, next) => {
     const { role, id_auth_supabase, name } = req.body
     try {
@@ -21,6 +30,7 @@ const createUser = async (req, res, next) => {
 }
 
 module.exports = {
+    getAllUsers,
     getUserBySupabaseId,
     createUser
 }
