@@ -2,6 +2,16 @@ const paypal = require("../config/paypal")
 const { updateSaleState } = require("../models/SaleModel")
 
 const createPayment = async (req, res, next) => {
+    
+    const {items, total} = req.body
+    const mappedItems = items.map(item=>({
+        name: item.description,
+        sku: `SKU-${item.id_product}`,
+        price: (item.price_sale).toString(),
+        currency: "USD",
+        quantity: item.amount
+    }))
+
     const create_payment_json = {
         intent: "sale",
         payer: {
@@ -13,11 +23,11 @@ const createPayment = async (req, res, next) => {
         },
         transactions: [{
             item_list: {
-                items: req.body.items
+                items: mappedItems
             },
             amount: {
                 currency: "USD",
-                total: req.body.total
+                total: total
             },
             description: "Esta es la estructura de pagos con paypal"
         }]
