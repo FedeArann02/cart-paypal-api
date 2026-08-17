@@ -21,9 +21,9 @@ const createUser = async (role, id_auth_supabase, name) => {
     return rows[0];
 }
 
-module.exports = { 
+module.exports = {
     getAllUsers,
     showRoleByUserId,
     getUserBySupabaseId,
     createUser
- }
+}

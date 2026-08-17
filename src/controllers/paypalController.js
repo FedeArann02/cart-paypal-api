@@ -38,7 +38,8 @@ const createPayment = async (req, res, next) => {
             next(error)
         }
         else {
-            res.status(200).json({ payment })
+            const redirectUrl = payment.links.find(link => link.rel === "approval_url").href
+            res.status(200).json({ redirectUrl })
         }
     })
 };

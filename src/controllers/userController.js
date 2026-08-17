@@ -1,7 +1,7 @@
 const userModel = require("../models/userModel")
 
 const getUserBySupabaseId = async (req, res, next) => {
-    const idAuthSupabase = req.params
+    const idAuthSupabase = req.params.id_auth_supabase;
     try {
         const response = await userModel.getUserBySupabaseId(idAuthSupabase);
         res.status(201).json(response)
