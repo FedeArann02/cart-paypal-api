@@ -16,7 +16,7 @@ const createSale = async (id_user, status, total) => {
     return rows[0];
 }
 
-const updateSaleState = async (status, id) => {
+const updateSaleStatus = async (status, id) => {
     const { rows } = await pool.query(`UPDATE ${table} SET status = $1 WHERE id = $2 RETURNING *`, [status, id])
     return rows[0];
 }
@@ -29,7 +29,7 @@ const deleteSale = async (id) => {
 module.exports = {
     getAllSales,
     getSaleByUserId,
+    updateSaleStatus,
     createSale,
-    updateSaleState,
     deleteSale
 }

@@ -29,17 +29,6 @@ const createSale = async (req, res, next) => {
     }
 }
 
-const updateSaleState = async (req, res, next) => {
-    const { id } = req.params
-    const { name, price, image } = req.body
-    try {
-        const response = await saleModel.updateSaleState(name, price, image, id);
-        res.status(201).json(response)
-    } catch (error) {
-        next(error)
-    }
-}
-
 const deleteSale = async (req, res, next) => {
     const { id } = req.params
     try {
@@ -54,6 +43,5 @@ module.exports = {
     getAllSales,
     getSaleByUserId,
     createSale,
-    updateSaleState,
     deleteSale
 }

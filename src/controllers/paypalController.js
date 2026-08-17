@@ -1,5 +1,5 @@
 const paypal = require("../config/paypal")
-const { updateSaleState } = require("../models/SaleModel")
+const { updateSaleStatus } = require("../models/SaleModel")
 
 const createPayment = async (req, res, next) => {
     
@@ -18,7 +18,7 @@ const createPayment = async (req, res, next) => {
             payment_method: "paypal"
         },
         redirect_urls: {
-            return_url: "http://return.url",
+            return_url: "http://localhost:5173/pago/success",
             cancel_url: "http://cancel.url"
         },
         transactions: [{
@@ -62,8 +62,7 @@ const executePayment = async (req, res, next) => {
         }
         else {
             try {
-                await updateSaleState("CONFIRMADO", sale_id)
-                console.log("completo")
+                await updateSaleStatus("CONFIRMADO", sale_id)
                 res.status(200).json({ payment })
 
             } catch (error) {
