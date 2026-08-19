@@ -9,7 +9,7 @@ const isAdmin = async (req, res, next) => {
     try {
         const userRole = await userModel.showRoleByUserId(user.id)
         if (userRole !== "admin") {
-            return res.status(403).json({ error: "Forbidden" })
+            return res.status(403).json({ error: "Forbidden: Administrator role required" })
         }
         next();
 
