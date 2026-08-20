@@ -11,6 +11,18 @@ const signUp = async (email, password) => {
     return data.user
 }
 
+const signIn = async (email, password) => {
+    const { data, error } = await supabase.auth.signInWithPassword({
+        email,
+        password
+    })
+    if (error) {
+        throw error
+    }
+    return data.session
+}
+
 module.exports = {
-    signUp
+    signUp,
+    signIn
 }

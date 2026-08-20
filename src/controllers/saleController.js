@@ -19,6 +19,16 @@ const getSaleByUserId = async (req, res, next) => {
     }
 }
 
+const getSaleById = async (req, res, next) => {
+    const { id_sale } = req.params.id_sale
+    try {
+        const response = await saleModel.getSaleById(id_sale);
+        res.status(200).json(result)
+    } catch (error) {
+        next(error)
+    }
+}
+
 const createSale = async (req, res, next) => {
     const { id_user, status, total } = req.body
     try {
@@ -42,6 +52,7 @@ const deleteSale = async (req, res, next) => {
 module.exports = {
     getAllSales,
     getSaleByUserId,
+    getSaleById,
     createSale,
     deleteSale
 }

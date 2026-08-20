@@ -33,7 +33,7 @@ const authenticate = require("../middleware/authenticate.js")
 router.post("/", authenticate, saleController.createSale)
 /**
  * @swagger
- * /api/cart/item/{id_user}:
+ * /api/cart/item/{id_sale}:
  *   post:
  *     tags:
  *       - Cart
@@ -42,11 +42,11 @@ router.post("/", authenticate, saleController.createSale)
  *     summary: crea un nuevo detalle perteneciente a una venta
  *     parameters:
  *      - in: path
- *        name: id_user
+ *        name: id_sale
  *        required: true
  *        schema:
  *          type: integer
- *        description: ID del usuario
+ *        description: ID de la venta
  *     requestBody:
  *       required: true
  *       content:
@@ -63,7 +63,9 @@ router.post("/", authenticate, saleController.createSale)
  *                 $ref: '#/components/schemas/SaleDetailResponse'
  *       401:
  *         description: No autenticado o token inválido.
+ *       404: 
+ *         description: venta no encontrado
  */
-router.post("/item/:id_user", authenticate, saleDetailController.createSaleDetail)
+router.post("/item/:id_sale", authenticate, saleDetailController.createSaleDetail)
 
 module.exports = router;

@@ -3,7 +3,7 @@ const table = "sales_detail"
 
 const getSaleDetailByIdSale = async (id_sales) => {
     const { rows } = await pool.query(`SELECT * FROM ${table} WHERE id_sales = $1`, [id_sales])
-    return rows[0];
+    return rows;
 }
 
 const createSaleDetail = async (id_sales, id_product, description, price_sale, amount, total) => {

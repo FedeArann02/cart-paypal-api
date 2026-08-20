@@ -5,7 +5,7 @@ const authenticate = require("../middleware/authenticate");
 
 /**
  * @swagger
- * /api/payment/:
+ * /api/payment/create/:
  *   post:
  *     tags:
  *       - Payment
@@ -39,7 +39,7 @@ router.post("/create", authenticate, paypalController.createPayment)
 
 /**
  * @swagger
- * /api/payment/{sale_id}:
+ * /api/payment/success/{sale_id}:
  *   get:
  *     tags:
  *       - Payment

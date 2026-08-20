@@ -154,12 +154,8 @@ const options = {
 
                 SaleDetailRequest: {
                     type: "object",
-                    required: ["id_sales", "id_product", "description", "price_sale", "amount", "total"],
+                    required: ["id_product", "description", "price_sale", "amount", "total"],
                     properties: {
-                        id_sales: {
-                            type: "integer",
-                            example: 1,
-                        },
                         id_product: {
                             type: "integer",
                             example: 1,
