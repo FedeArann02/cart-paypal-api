@@ -1,12 +1,15 @@
 
-const errorHandler = (err, req, res, next)=>{
-    console.log(err.stack)
-    const statusCode = err.statusCode || 500
-    const message = err.message || "Internal Server Error"
-    res.status(statusCode).json({
-        status: "error",
-        statusCode,
-        message
+const errorHandler = (error, req, res, next) => {
+    console.error(error)
+
+    if (error.message === "User already registered") {
+        return res.status(409).json({
+            error: "El usuario ya está registrado"
+        })
+    }
+
+    res.status(500).json({
+        error: "Internal Server Error"
     })
 }
 

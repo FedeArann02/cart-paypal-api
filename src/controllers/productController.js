@@ -13,6 +13,13 @@ const getProductById = async (req, res, next) => {
     const { id } = req.params
     try {
         const result = await productModel.getProductById(id);
+
+        if (!result) {
+            return res.status(404).json({
+                error: "Producto no encontrado"
+            })
+        }
+
         res.status(200).json(result)
     } catch (error) {
         next(error)

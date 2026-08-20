@@ -11,6 +11,11 @@ const getSaleByUserId = async (id_user) => {
     return rows[0];
 }
 
+const getSaleById = async (id_sale) => {
+    const { rows } = await pool.query(`SELECT * FROM ${table} WHERE id = $1`, [id_sale])
+    return rows[0];
+}
+
 const createSale = async (id_user, status, total) => {
     const { rows } = await pool.query(`INSERT INTO ${table}(id_user, status, total) VALUES ($1, $2, $3) RETURNING *`, [id_user, status, total])
     return rows[0];
@@ -28,6 +33,7 @@ const deleteSale = async (id) => {
 
 module.exports = {
     getAllSales,
+    getSaleById,
     getSaleByUserId,
     updateSaleStatus,
     createSale,

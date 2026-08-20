@@ -1,76 +1,53 @@
-const paypal = require("../config/paypal")
-const { updateSaleStatus } = require("../models/SaleModel")
+const { updateSaleStatus, getSaleById } = require("../models/SaleModel")
+const { getSaleDetailByIdSale } = require("../models/SaleDetailModel")
+const PaymentService = require("../services/PaymentService")
 
 const createPayment = async (req, res, next) => {
-    
-    const {items, total} = req.body
-    const mappedItems = items.map(item=>({
-        name: item.description,
-        sku: `SKU-${item.id_product}`,
-        price: (item.price_sale).toString(),
-        currency: "USD",
-        quantity: item.amount
-    }))
+    try {
 
-    const create_payment_json = {
-        intent: "sale",
-        payer: {
-            payment_method: "paypal"
-        },
-        redirect_urls: {
-            return_url: "http://localhost:5173/pago/success",
-            cancel_url: "http://cancel.url"
-        },
-        transactions: [{
-            item_list: {
-                items: mappedItems
-            },
-            amount: {
-                currency: "USD",
-                total: total
-            },
-            description: "Esta es la estructura de pagos con paypal"
-        }]
-    };
+        const { id_sales } = req.body
+        const saleDetail = await getSaleDetailByIdSale(id_sales)
+        const sale = await getSaleById(id_sales)
 
-    paypal.payment.create(create_payment_json, async function (error, payment) {
-        if (error) {
-            next(error)
-        }
-        else {
-            const redirectUrl = payment.links.find(link => link.rel === "approval_url").href
-            res.status(200).json({ redirectUrl })
-        }
-    })
-};
+        const mappedItems = saleDetail.map(item => ({
+            name: item.description,
+            sku: `SKU-${item.id_product}`,
+            price: item.price_sale.toString(),
+            currency: "USD",
+            quantity: item.amount
+        }))
+
+        const redirectUrl = await PaymentService.create(mappedItems, sale.total, id_sales)
+        res.status(200).json({ redirectUrl:redirectUrl} )
+
+    } catch (error) {
+        next(error)
+    }
+}
 
 const executePayment = async (req, res, next) => {
-    const { sale_id } = req.params
-    const { paymentId, PayerID } = req.query
-    const execute_payment_json = {
-        payer_id: PayerID,
-        transactions: [{
-            amount: {
-                currency: "USD",
-                total: req.query.total
-            }
-        }]
-    }
-    paypal.payment.execute(paymentId, execute_payment_json, async function (error, payment) {
-        if (error) {
-            next(error)
-        }
-        else {
-            try {
-                await updateSaleStatus("CONFIRMADO", sale_id)
-                res.status(200).json({ payment })
 
-            } catch (error) {
-                next(error)
-            }
-        }
-    })
+    try {
+        const { sale_id } = req.params
+        const { paymentId, PayerID } = req.query
+
+        const sale = await getSaleById(sale_id)
+
+        const payment = await PaymentService.execute(
+            paymentId,
+            PayerID,
+            sale.total
+        )
+
+        await updateSaleStatus("CONFIRMADO", sale_id)
+
+        res.status(200).json({ payment })
+
+    } catch (error) {
+        next(error)
+    }
 }
+
 
 module.exports = {
     createPayment,
