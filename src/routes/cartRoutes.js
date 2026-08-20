@@ -13,12 +13,11 @@ const authenticate = require("../middleware/authenticate.js")
  *     security:
  *       - bearerAuth: []
  *     summary: crea el proceso de una nueva venta
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             $ref: "#/components/schemas/SaleRequest"
+ *     description: >
+ *       Crea una nueva venta asociada al usuario autenticado.
+ *       La venta se crea inicialmente con estado PENDIENTE y total 0.
+ *       El total será actualizado por el backend a medida que se agreguen
+ *       los detalles de la venta.
  *     responses:
  *       200:
  *         description: venta creada exitosamente

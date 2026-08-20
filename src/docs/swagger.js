@@ -72,26 +72,6 @@ const options = {
                     }
                 },
 
-                SaleRequest: {
-                    type: "object",
-                    required: ["id_user", "status", "total"],
-                    properties: {
-                        id_user: {
-                            type: "integer",
-                            example: 1,
-                        },
-                        status: {
-                            type: "string",
-                            description: "estado de la venta",
-                            example: "pendiente",
-                        },
-                        total: {
-                            type: "integer",
-                            description: "total de la venta",
-                            example: 50
-                        },
-                    },
-                },
                 SaleResponse: {
                     type: "object",
                     required: [""],
@@ -107,12 +87,12 @@ const options = {
                         status: {
                             type: "string",
                             description: "estado de la venta",
-                            example: "pendiente",
+                            example: "PENDIENTE",
                         },
                         total: {
                             type: "integer",
                             description: "total de la venta",
-                            example: 50
+                            example: 0
                         },
                     },
                 },
@@ -125,25 +105,10 @@ const options = {
                             type: "integer",
                             example: 1,
                         },
-                        description: {
-                            type: "string",
-                            description: "descripcion o nombre del producto",
-                            example: "café",
-                        },
-                        price_sale: {
-                            type: "numeric",
-                            example: 50,
-                            description: "precio del producto en venta"
-                        },
                         amount: {
                             type: "integer",
                             example: 2,
                             description: "cantidad de producto seleccionado"
-                        },
-                        total: {
-                            type: "numeric",
-                            description: "precio total del producto seleccionado",
-                            example: 100
                         },
                     },
                 },

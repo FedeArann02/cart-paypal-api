@@ -6,8 +6,8 @@ const getSaleDetailByIdSale = async (id_sales) => {
     return rows;
 }
 
-const createSaleDetail = async (id_sales, id_product, description, price_sale, amount, total) => {
-    const { rows } = await pool.query(`INSERT INTO ${table}(id_sales, id_product, description, price_sale, amount, total) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *`, [id_sales, id_product, description, price_sale, amount, total])
+const createSaleDetail = async (client, id_sales, id_product, description, price_sale, amount, total) => {
+    const { rows } = await client.query(`INSERT INTO ${table}(id_sales, id_product, description, price_sale, amount, total) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *`, [id_sales, id_product, description, price_sale, amount, total])
     return rows[0];
 }
 

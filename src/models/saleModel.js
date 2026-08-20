@@ -21,13 +21,25 @@ const createSale = async (id_user, status, total) => {
     return rows[0];
 }
 
-const updateSaleStatus = async (status, id) => {
-    const { rows } = await pool.query(`UPDATE ${table} SET status = $1 WHERE id = $2 RETURNING *`, [status, id])
+const updateSaleStatus = async (status, id_sale) => {
+    const { rows } = await pool.query(`UPDATE ${table} SET status = $1 WHERE id = $2 RETURNING *`, [status, id_sale])
     return rows[0];
 }
 
-const deleteSale = async (id) => {
-    const { rows } = await pool.query(`DELETE FROM ${table} WHERE id = $1 RETURNING *`, [id])
+const addSaleTotal = async (client, id_sale, totalDetail) => {
+    const { rows } = await client.query(
+        `UPDATE ${table}
+         SET total = total + $1
+         WHERE id = $2
+         RETURNING *`,
+        [totalDetail, id_sale]
+    )
+
+    return rows[0]
+}
+
+const deleteSale = async (id_sale) => {
+    const { rows } = await pool.query(`DELETE FROM ${table} WHERE id = $1 RETURNING *`, [id_sale])
     return rows[0];
 }
 
@@ -36,6 +48,7 @@ module.exports = {
     getSaleById,
     getSaleByUserId,
     updateSaleStatus,
+    addSaleTotal,
     createSale,
     deleteSale
 }

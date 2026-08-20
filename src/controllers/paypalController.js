@@ -31,15 +31,11 @@ const executePayment = async (req, res, next) => {
         const { sale_id } = req.params
         const { paymentId, PayerID } = req.query
 
-        const sale = await getSaleById(sale_id)
-
         const payment = await PaymentService.execute(
+            sale_id,
             paymentId,
-            PayerID,
-            sale.total
+            PayerID
         )
-
-        await updateSaleStatus("CONFIRMADO", sale_id)
 
         res.status(200).json({ payment })
 
