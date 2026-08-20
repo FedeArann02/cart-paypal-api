@@ -74,7 +74,7 @@ router.post("/create", authenticate, paypalController.createPayment)
  *          example: ABC123456
  *     responses:
  *       200:
- *         description: Pago creado exitosamente.
+ *         description: Pago ejecutado y venta confirmada exitosamente.
  *         content:
  *           application/json:
  *             schema:

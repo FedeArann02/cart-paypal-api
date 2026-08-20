@@ -117,41 +117,6 @@ const options = {
                     },
                 },
 
-                PayPalPaymentRequest: {
-                    type: "object",
-                    required: ["id_sales"],
-                    properties: {
-                        id_sales: {
-                            type: "integer",
-                            description: "Identificador de la venta que se desea pagar",
-                            example: 1
-                        },
-                    },
-                },
-                PayPalPaymentResponse: {
-                    type: "object",
-                    required: ["redirectUrl"],
-                    properties: {
-                        redirectUrl: {
-                            type: "string",
-                            description: "URL de PayPal a la que se debe redirigir al usuario para aprobar el pago",
-                            example: "https://www.sandbox.paypal.com/checkoutnow?token=..."
-                        },
-                    },
-                },
-
-                PayPalPaymentExecuteResponse: {
-                    type: "object",
-                    required: [""],
-                    properties: {
-                        sale_id: {
-                            type: "string",
-                            description: "",
-                            example: ""
-                        },
-                    },
-                },
-
                 SaleDetailRequest: {
                     type: "object",
                     required: ["id_product", "description", "price_sale", "amount", "total"],
@@ -219,6 +184,89 @@ const options = {
                             example: 100
                         },
                     },
+                },
+
+                PayPalPaymentRequest: {
+                    type: "object",
+                    required: ["id_sales"],
+                    properties: {
+                        id_sales: {
+                            type: "integer",
+                            description: "Identificador de la venta que se desea pagar",
+                            example: 1
+                        },
+                    },
+                },
+                PayPalPaymentResponse: {
+                    type: "object",
+                    required: ["redirectUrl"],
+                    properties: {
+                        redirectUrl: {
+                            type: "string",
+                            description: "URL de PayPal a la que se debe redirigir al usuario para aprobar el pago",
+                            example: "https://www.sandbox.paypal.com/checkoutnow?token=..."
+                        },
+                    },
+                },
+
+                PayPalPaymentExecuteResponse: {
+                    type: "object",
+                    required: ["payment"],
+                    properties: {
+                        payment: {
+                            type: "object",
+                            properties: {
+                                id: {
+                                    type: "string",
+                                    description: "Identificador del pago generado por PayPal",
+                                    example: "PAY-123456789"
+                                },
+                                intent: {
+                                    type: "string",
+                                    example: "sale"
+                                },
+                                state: {
+                                    type: "string",
+                                    description: "Estado del pago",
+                                    example: "approved"
+                                },
+                                payer: {
+                                    type: "object",
+                                    properties: {
+                                        payment_method: {
+                                            type: "string",
+                                            example: "paypal"
+                                        },
+                                        status: {
+                                            type: "string",
+                                            example: "VERIFIED"
+                                        }
+                                    }
+                                },
+                                transactions: {
+                                    type: "array",
+                                    items: {
+                                        type: "object",
+                                        properties: {
+                                            amount: {
+                                                type: "object",
+                                                properties: {
+                                                    total: {
+                                                        type: "string",
+                                                        example: "100.00"
+                                                    },
+                                                    currency: {
+                                                        type: "string",
+                                                        example: "USD"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                 },
 
                 ProductRequest: {
