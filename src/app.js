@@ -9,7 +9,7 @@ const userRoutes = require("./routes/userRoutes")
 const paymentRoutes = require("./routes/paymentRoutes")
 const productRoutes = require("./routes/productRoutes")
 const errorHandler = require("./middleware/errorHandler")
-const setupSwaggerDocs = require("./docs/swagger") //npm i swagger swagger-ui-express swagger-jsdoc
+const setupSwaggerDocs = require("./docs/swagger")
 
 const app = express()
 app.use(cors())
@@ -17,7 +17,7 @@ const PORT = process.env.DB_PORT || 3000
 
 app.use(helmet())
 app.use(bodyParser.json())
-setupSwaggerDocs(app) //configurar Swagger
+setupSwaggerDocs(app)
 app.use(errorHandler)
 app.use("/api/auth", authRoutes)
 app.use("/api/users", userRoutes)

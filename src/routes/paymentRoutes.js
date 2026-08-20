@@ -45,12 +45,10 @@ router.post("/create", authenticate, paypalController.createPayment)
  *       - Payment
  *     summary: Ejecutar y confirmar un pago
  *     description: Ejecuta el pago previamente aprobado por el usuario en PayPal.
- *       Requiere autenticación mediante Bearer Token y el identificador de la
+ *       Requiere el identificador de la
  *       venta. Los parámetros paymentId y PayerID son proporcionados por PayPal
- *       después de que el usuario aprueba el pago. Si la ejecución es exitosa,
+ *       después de que el usuario aprueba el pago. Si la ejecución es exitosa y los datos de la venta coinciden,
  *       la venta asociada se actualiza al estado CONFIRMADO.
- *     security:
- *       - bearerAuth: []
  *     parameters:
  *      - in: path
  *        name: sale_id
@@ -85,6 +83,6 @@ router.post("/create", authenticate, paypalController.createPayment)
  *       500:
  *         description: Error al crear el pago en PayPal.
  */
-router.get("/success/:sale_id", authenticate, paypalController.executePayment)
+router.get("/success/:sale_id", paypalController.executePayment)
 
 module.exports = router

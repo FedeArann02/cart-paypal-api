@@ -1,5 +1,8 @@
 const saleDetailModel = require("../models/SaleDetailModel")
-const {getSaleById} = require("../models/SaleModel")
+const saleModel = require("../models/SaleModel")
+const productModel = require("../models/ProductModel")
+const saleService = require("../services/SaleService")
+
 
 const getSaleDetailByIdSale = async (req, res, next) => {
     const { id } = req.params
@@ -13,16 +16,16 @@ const getSaleDetailByIdSale = async (req, res, next) => {
 
 const createSaleDetail = async (req, res, next) => {
 
-    const id_sale = req.params.id_sale
-    const { id_product, description, price_sale, amount, total } = req.body
-
     try {
-        const sale = await getSaleById(id_sale)
-        if(!sale){
-            return res.status(404).json({ error: "Cart not found" })
-        }
-        
-        const response = await saleDetailModel.createSaleDetail(sale.id, id_product, description, price_sale, amount, total);
+        const { id_sale } = req.params
+        const { id_product, amount } = req.body
+
+        const response = await saleService.addProductToSale(
+            id_sale,
+            id_product,
+            amount
+        )
+
         res.status(201).json(response)
 
     } catch (error) {
