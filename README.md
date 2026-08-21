@@ -1,2 +1,52 @@
-﻿# cart-paypal-api
-API REST para un carrito de compras de e-commerce desarrollada con Express, PostgreSQL, Supabase Auth e integración con PayPal.
+﻿# Cart PayPal API
+
+REST API desarrollada con Node.js y Express para la gestión de usuarios, productos, carritos, ventas y pagos mediante PayPal.
+
+La API utiliza Supabase Auth para la autenticación de usuarios, PostgreSQL como sistema de persistencia de datos y PayPal Sandbox para la simulación de pagos.
+
+El proyecto cuenta con autenticación mediante Bearer Token, autorización basada en roles, validación de datos, manejo centralizado de errores y documentación interactiva mediante Swagger.
+
+---
+
+## Tecnologías utilizadas
+
+- Node.js
+- Express
+- PostgreSQL
+- Supabase Auth
+- PayPal REST SDK
+- Swagger / OpenAPI
+- express-validator
+- Helmet
+- CORS
+- Morgan
+- Nodemon
+
+---
+
+## Requisitos
+
+- Node.js
+- npm
+- PostgreSQL
+- Cuenta de Supabase
+- Cuenta de PayPal Developer para utilizar PayPal Sandbox
+
+---
+
+## Instalación
+
+Clonar el repositorio:
+```bash
+git clone <URL_DEL_REPOSITORIO>
+```
+
+Ingresar al directorio del proyecto:
+```bash
+cd cart-paypal
+```
+
+Instalar las dependencias:
+```bash
+npm install
+```
