@@ -50,3 +50,16 @@ Instalar las dependencias:
 ```bash
 npm install
 ```
+
+VARIABLES DE ETORNO
+Crear un archivo .env en la raíz del proyecto tomando como referencia .env.example
+
+---
+
+## Ejecución
+Para ejecutar el servidor en modo desarrollo:
+```bash
+npm run dev
+```
+Por defecto, la API estará disponible en: http://localhost:3000
+
