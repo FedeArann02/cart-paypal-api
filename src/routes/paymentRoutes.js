@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router();
 const paypalController = require("../controllers/paypalController");
 const authenticate = require("../middleware/authenticate");
+const validate = require("../middleware/validate")
+const { validateCreatePayment, validateExecutePayment } = require("../validators/paymentValidator")
 
 /**
  * @swagger
@@ -35,11 +37,11 @@ const authenticate = require("../middleware/authenticate");
  *       500:
  *         description: Error al crear el pago en PayPal.
  */
-router.post("/create", authenticate, paypalController.createPayment)
+router.post("/create", authenticate, validateCreatePayment, validate, paypalController.createPayment)
 
 /**
  * @swagger
- * /api/payment/success/{sale_id}:
+ * /api/payment/success/{id_sales}:
  *   get:
  *     tags:
  *       - Payment
@@ -51,7 +53,7 @@ router.post("/create", authenticate, paypalController.createPayment)
  *       la venta asociada se actualiza al estado CONFIRMADO.
  *     parameters:
  *      - in: path
- *        name: sale_id
+ *        name: id_sales
  *        required: true
  *        schema:
  *          type: integer
@@ -83,6 +85,6 @@ router.post("/create", authenticate, paypalController.createPayment)
  *       500:
  *         description: Error al crear el pago en PayPal.
  */
-router.get("/success/:sale_id", paypalController.executePayment)
+router.get("/success/:id_sales", validateExecutePayment, validate, paypalController.executePayment)
 
 module.exports = router

@@ -5,7 +5,7 @@ const getAllProducts = async (req, res, next) => {
         const result = await productModel.getAllProducts();
         res.status(200).json(result)
     } catch (error) {
-        next(error) //Pasar el error al middleware
+        next(error)
     }
 }
 
@@ -41,7 +41,7 @@ const updateProduct = async (req, res, next) => {
     const { name, price, image } = req.body
     try {
         const response = await productModel.updateProduct(name, price, image, id);
-        res.status(201).json(response)
+        res.status(200).json(response)
     } catch (error) {
         next(error)
     }
@@ -51,7 +51,7 @@ const deleteProduct = async (req, res, next) => {
     const { id } = req.params
     try {
         const result = await productModel.deleteProduct(id);
-        res.status(201).json(result)
+        res.status(200).json(result)
     } catch (error) {
         next(error)
     }

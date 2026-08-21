@@ -3,6 +3,8 @@ const router = express.Router();
 const userController = require("../controllers/userController");
 const authenticate = require("../middleware/authenticate");
 const isAdmin = require("../middleware/isAdmin.js")
+const validate = require("../middleware/validate.js")
+const { validateBodyUser, validateParamIdAuthSupabase } = require("../validators/userValidator.js")
 
 /**
  * @swagger
@@ -15,10 +17,10 @@ const isAdmin = require("../middleware/isAdmin.js")
  *     summary: Obtiene un usuario por su id_auth_supabase
  *     parameters:
  *       - in: path
- *         name: id
+ *         name: id_auth_supabase
  *         required: true
  *         schema:
- *           type: integer
+ *           type: string
  *         description: id_auth_supabase
  *     responses:
  *       200:
@@ -33,7 +35,7 @@ const isAdmin = require("../middleware/isAdmin.js")
  *       404:
  *         description: Usuario no encontrado
  */
-router.get("/:id_auth_supabase", authenticate, userController.getUserBySupabaseId)
+router.get("/:id_auth_supabase", authenticate, validateParamIdAuthSupabase, validate, userController.getUserBySupabaseId)
 
 /**
  * @swagger
@@ -77,7 +79,7 @@ router.get("/", authenticate, isAdmin, userController.getAllUsers)
  *           schema:
  *             $ref: "#/components/schemas/UserRequest"
  *     responses:
- *       200:
+ *       201:
  *         description: Usuario creado exitosamente
  *         content:
  *           application/json:
@@ -91,6 +93,6 @@ router.get("/", authenticate, isAdmin, userController.getAllUsers)
  *       409:
  *         description: El usuario ya existe
  */
-router.post("/create", authenticate, isAdmin, userController.createUser)
+router.post("/create", authenticate, isAdmin, validateBodyUser, validate, userController.createUser)
 
 module.exports = router
