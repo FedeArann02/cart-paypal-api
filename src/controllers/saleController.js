@@ -14,17 +14,17 @@ const getSaleByUserId = async (req, res, next) => {
     const { id_user } = req.params
     try {
         const response = await saleModel.getSaleByUserId(id_user);
-        res.status(200).json(result)
+        res.status(200).json(response)
     } catch (error) {
         next(error)
     }
 }
 
 const getSaleById = async (req, res, next) => {
-    const { id_sale } = req.params.id_sale
+    const { id_sale } = req.params
     try {
         const response = await saleModel.getSaleById(id_sale);
-        res.status(200).json(result)
+        res.status(200).json(response)
     } catch (error) {
         next(error)
     }
@@ -56,7 +56,7 @@ const deleteSale = async (req, res, next) => {
     const { id } = req.params
     try {
         const result = await saleModel.deleteSale(id);
-        res.status(201).json(result)
+        res.status(200).json(result)
     } catch (error) {
         next(error)
     }

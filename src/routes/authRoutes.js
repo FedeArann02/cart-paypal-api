@@ -1,6 +1,8 @@
 const express = require("express")
 const router = express.Router()
 const {signUpNewEmail, signInNewSession} = require("../controllers/authController")
+const validate = require("../middleware/validate")
+const { validateSignup, validateSignin } = require("../validators/authValidator")
 
 /**
  * @swagger
@@ -16,14 +18,14 @@ const {signUpNewEmail, signInNewSession} = require("../controllers/authControlle
  *           schema:
  *             $ref: "#/components/schemas/RegisterRequest"
  *     responses:
- *       200:
+ *       201:
  *         description: usuario creado exitosamente
- *       404:
- *         description: Ruta no encontrada
+ *       400:
+ *         description: Datos de registro inválidos.
  *       409:
  *         description: El usuario ya existe
  */
-router.post("/signup", signUpNewEmail)
+router.post("/signup", validateSignup, validate, signUpNewEmail)
 /**
  * @swagger
  * /api/auth/signin:
@@ -39,10 +41,10 @@ router.post("/signup", signUpNewEmail)
  *             $ref: "#/components/schemas/LoginRequest"
  *     responses:
  *       200:
- *         description: sesión creada exitosamente
+ *         description: Sesión creada exitosamente
  *       400:
- *         description: credenciales de logeo inválidas
+ *         description: Credenciales inválidas.
  */
-router.post("/signin", signInNewSession)
+router.post("/signin", validateSignin, validate, signInNewSession)
 
 module.exports = router

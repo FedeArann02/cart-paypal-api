@@ -1,4 +1,4 @@
-const { updateSaleStatus, getSaleById } = require("../models/SaleModel")
+const { getSaleById } = require("../models/SaleModel")
 const { getSaleDetailByIdSale } = require("../models/SaleDetailModel")
 const PaymentService = require("../services/PaymentService")
 
@@ -28,11 +28,11 @@ const createPayment = async (req, res, next) => {
 const executePayment = async (req, res, next) => {
 
     try {
-        const { sale_id } = req.params
+        const { id_sales } = req.params
         const { paymentId, PayerID } = req.query
 
         const payment = await PaymentService.execute(
-            sale_id,
+            id_sales,
             paymentId,
             PayerID
         )

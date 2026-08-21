@@ -3,6 +3,8 @@ const router = express.Router();
 const saleController = require("../controllers/saleController.js");
 const saleDetailController = require("../controllers/saleDetailController.js");
 const authenticate = require("../middleware/authenticate.js")
+const validate = require("../middleware/validate")
+const { validateAddProductToSale } = require("../validators/cartValidator")
 
 /**
  * @swagger
@@ -19,7 +21,7 @@ const authenticate = require("../middleware/authenticate.js")
  *       El total será actualizado por el backend a medida que se agreguen
  *       los detalles de la venta.
  *     responses:
- *       200:
+ *       201:
  *         description: venta creada exitosamente
  *         content:
  *           application/json:
@@ -53,7 +55,7 @@ router.post("/", authenticate, saleController.createSale)
  *           schema:
  *             $ref: "#/components/schemas/SaleDetailRequest"
  *     responses:
- *       200:
+ *       201:
  *         description: detalle de venta creado exitosamente
  *         content:
  *           application/json:
@@ -65,6 +67,6 @@ router.post("/", authenticate, saleController.createSale)
  *       404: 
  *         description: venta no encontrado
  */
-router.post("/item/:id_sale", authenticate, saleDetailController.createSaleDetail)
+router.post("/item/:id_sale", authenticate, validateAddProductToSale, validate, saleDetailController.createSaleDetail)
 
 module.exports = router;

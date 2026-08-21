@@ -3,6 +3,8 @@ const router = express.Router();
 const productController = require("../controllers/productController.js");
 const authenticate = require("../middleware/authenticate.js")
 const isAdmin = require("../middleware/isAdmin.js")
+const validate = require("../middleware/validate")
+const { validateParamId, validateCreateProduct, validateUpdateProduct } = require("../validators/productValidator.js")
 
 /**
  * @swagger
@@ -49,8 +51,7 @@ router.get("/", productController.getAllProducts)
  *       404:
  *         description: Producto no encontrado
  */
-router.get("/:id", productController.getProductById)
-
+router.get("/:id", validateParamId, validate, productController.getProductById)
 
 /**
  * @swagger
@@ -63,7 +64,7 @@ router.get("/:id", productController.getProductById)
  *     security:
  *       - bearerAuth: []
  *     responses:
- *       200:
+ *       201:
  *         description: producto Creado exitosamente
  *         content:
  *           application/json:
@@ -75,7 +76,7 @@ router.get("/:id", productController.getProductById)
  *       403:
  *         description: Prohibido - Requiere el rol de administrador
  */
-router.post("/", authenticate, isAdmin, productController.createProduct)
+router.post("/", authenticate, isAdmin, validateCreateProduct, validate, productController.createProduct)
 /**
  * @swagger
  * /api/products/{id_product}:
@@ -114,7 +115,7 @@ router.post("/", authenticate, isAdmin, productController.createProduct)
  *       404:
  *         description: Producto no encontrado
  */
-router.put("/:id", authenticate, isAdmin, productController.updateProduct)
+router.put("/:id", authenticate, isAdmin, validateUpdateProduct, validate, productController.updateProduct)
 /**
  * @swagger
  * /api/products/{id_product}:
@@ -147,6 +148,6 @@ router.put("/:id", authenticate, isAdmin, productController.updateProduct)
  *       404:
  *         description: Producto no encontrado
  */
-router.delete("/:id", authenticate, isAdmin, productController.deleteProduct)
+router.delete("/:id", authenticate, isAdmin, validateParamId, validate, productController.deleteProduct)
 
 module.exports = router;

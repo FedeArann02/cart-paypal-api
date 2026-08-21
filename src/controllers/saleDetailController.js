@@ -1,6 +1,4 @@
 const saleDetailModel = require("../models/SaleDetailModel")
-const saleModel = require("../models/SaleModel")
-const productModel = require("../models/ProductModel")
 const saleService = require("../services/SaleService")
 
 
@@ -8,7 +6,7 @@ const getSaleDetailByIdSale = async (req, res, next) => {
     const { id } = req.params
     try {
         const response = await saleDetailModel.getSaleDetailByIdSale(id);
-        res.status(200).json(result)
+        res.status(200).json(response)
     } catch (error) {
         next(error)
     }

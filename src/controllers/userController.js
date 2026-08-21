@@ -2,10 +2,10 @@ const authService = require("../services/AuthService")
 const userModel = require("../models/UserModel")
 
 const getUserBySupabaseId = async (req, res, next) => {
-    const idAuthSupabase = req.params.id_auth_supabase;
+    const { id_auth_supabase } = req.params
     try {
-        const response = await userModel.getUserBySupabaseId(idAuthSupabase);
-        res.status(201).json(response)
+        const response = await userModel.getUserBySupabaseId(id_auth_supabase);
+        res.status(200).json(response)
     } catch (error) {
         next(error)
     }
@@ -14,7 +14,7 @@ const getUserBySupabaseId = async (req, res, next) => {
 const getAllUsers = async (req, res, next) => {
     try {
         const response = await userModel.getAllUsers();
-        res.status(201).json(response)
+        res.status(200).json(response)
     } catch (error) {
         next(error)
     }
