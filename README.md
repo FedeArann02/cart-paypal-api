@@ -86,3 +86,38 @@ Por defecto, la API estará disponible en: http://localhost:3000
 
 La API cuenta con documentación interactiva mediante Swagger UI.
 Una vez iniciado el servidor, puede accederse a la documentación desde: http://localhost:3000/api-docs
+
+---
+
+## Configuración de Supabase
+
+El proyecto utiliza Supabase Auth para gestionar el registro y autenticación de usuarios.
+
+### 1. Crear un proyecto
+
+Crear un proyecto desde el panel de Supabase.
+
+### 2. Obtener las credenciales
+
+Desde la configuración del proyecto, obtener:
+
+- `SUPABASE_URL`
+- `SUPABASE_ANON_KEY`
+
+Estas variables deben agregarse al archivo `.env`.
+
+```env
+SUPABASE_URL=
+SUPABASE_ANON_KEY=
+```
+
+### 3. Configurar la base de datos
+
+La API utiliza PostgreSQL para almacenar la información relacionada con:
+
+-Usuarios
+-Productos
+-Ventas
+-Detalles de ventas
+
+El identificador generado por Supabase Auth se almacena en la base de datos como id_auth_supabase, permitiendo relacionar el usuario autenticado con su registro dentro de la aplicación.
