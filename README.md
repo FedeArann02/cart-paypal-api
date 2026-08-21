@@ -53,7 +53,24 @@ npm install
 
 VARIABLES DE ETORNO
 Crear un archivo .env en la raíz del proyecto tomando como referencia .env.example
+```env
+PORT=3000
 
+DB_USER=
+DB_PASSWORD=
+DB_HOST=
+DB_PORT=5432
+DB_NAME=
+
+SUPABASE_URL=
+SUPABASE_ANON_KEY=
+
+PAYPAL_MODE=
+PAYPAL_CLIENT_ID=
+PAYPAL_CLIENT_SECRET=
+PAYPAL_RETURN_URL=
+PAYPAL_CANCEL_URL=
+```
 ---
 
 ## Ejecución
@@ -63,3 +80,9 @@ npm run dev
 ```
 Por defecto, la API estará disponible en: http://localhost:3000
 
+---
+
+## Swagger
+
+La API cuenta con documentación interactiva mediante Swagger UI.
+Una vez iniciado el servidor, puede accederse a la documentación desde: http://localhost:3000/api-docs
