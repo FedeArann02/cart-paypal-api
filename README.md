@@ -8,17 +8,59 @@ El proyecto cuenta con autenticación mediante Bearer Token, autorización basad
 
 ---
 
-## Tecnologías utilizadas
+### Tecnologías utilizadas
 
 <p align="center">
   <img src="https://cdn.jsdelivr.net/npm/devicon@2.17.0/icons/nodejs/nodejs-original.svg" width="60" alt="Node.js" title="Node.js" />
+  &nbsp;&nbsp;&nbsp;&nbsp;
   <img src="https://cdn.jsdelivr.net/npm/devicon@2.17.0/icons/express/express-original.svg" width="60" alt="Express" title="Express" />
+  &nbsp;&nbsp;&nbsp;&nbsp;
   <img src="https://cdn.jsdelivr.net/npm/devicon@2.17.0/icons/postgresql/postgresql-original.svg" width="60" alt="PostgreSQL" title="PostgreSQL" />
+  &nbsp;&nbsp;&nbsp;&nbsp;
   <img src="https://cdn.jsdelivr.net/npm/devicon@2.17.0/icons/supabase/supabase-original.svg" width="60" alt="Supabase" title="Supabase" />
+</p>
+
+<p align="center">
+  <strong>Node.js</strong>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <strong>Express</strong>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <strong>PostgreSQL</strong>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <strong>Supabase</strong>
+</p>
+
+<br>
+
+<p align="center">
   <img src="https://cdn.jsdelivr.net/npm/devicon@2.17.0/icons/javascript/javascript-original.svg" width="60" alt="JavaScript" title="JavaScript" />
+  &nbsp;&nbsp;&nbsp;&nbsp;
   <img src="https://cdn.jsdelivr.net/npm/simple-icons@16.28.0/icons/paypal.svg" width="60" alt="PayPal" title="PayPal" />
+  &nbsp;&nbsp;&nbsp;&nbsp;
   <img src="https://cdn.jsdelivr.net/npm/simple-icons@16.28.0/icons/swagger.svg" width="60" alt="Swagger" title="Swagger" />
 </p>
+
+<p align="center">
+  <strong>JavaScript</strong>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <strong>PayPal</strong>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <strong>Swagger / OpenAPI</strong>
+</p>
+
+<br>
+
+**Backend:** Node.js · Express
+
+**Database:** PostgreSQL · Supabase
+
+**Authentication:** Supabase Auth
+
+**Payments:** PayPal Sandbox
+
+**Documentation:** Swagger / OpenAPI
+
+**Validation:** express-validator
 
 **Backend:** Node.js · Express
 
