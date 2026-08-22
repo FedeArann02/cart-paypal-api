@@ -167,3 +167,73 @@ Ejemplo:
     "password": "password123"
 }
 ```
+El registro crea las credenciales del usuario mediante Supabase Auth y posteriormente genera el registro correspondiente en la base de datos de la aplicación.
+
+### Inicio de sesión
+Para iniciar sesión:
+```http
+POST /api/auth/signin
+```
+Ejemplo:
+```JSON
+{
+    "email": "usuario@email.com",
+    "password": "password123"
+}
+```
+La respuesta contiene la sesión y el token de acceso proporcionado por Supabase.
+
+### Bearer Token
+Los endpoints protegidos requieren enviar el token mediante el header:
+```http
+Authorization: Bearer <TOKEN>
+```
+
+### Autorización por roles
+Algunos endpoints requieren además que el usuario autenticado posea el rol admin.
+
+En estos casos se utilizan los middlewares de autenticación y autorización:
+authenticate → isAdmin → controller
+
+---
+
+## Endpoints principales
+
+### Auth
+
+| Método | Endpoint | Descripción |
+|---|---|---|
+| POST | `/api/auth/signup` | Registrar usuario |
+| POST | `/api/auth/signin` | Iniciar sesión |
+
+### Users
+
+| Método | Endpoint | Descripción |
+|---|---|---|
+| GET | `/api/users/:id_auth_supabase` | Obtener usuario |
+| POST | `/api/users/create` | Crear usuario |
+
+### Products
+
+| Método | Endpoint | Descripción |
+|---|---|---|
+| GET | `/api/products` | Obtener productos |
+| POST | `/api/products` | Crear producto |
+| PUT | `/api/products/:id` | Modificar producto |
+| DELETE | `/api/products/:id` | Eliminar producto |
+
+### Cart
+
+| Método | Endpoint | Descripción |
+|---|---|---|
+| POST | `/api/cart` | Crear una venta |
+| POST | `/api/cart/item/:id_sale` | Agregar producto a la venta |
+
+### Payments
+
+| Método | Endpoint | Descripción |
+|---|---|---|
+| POST | `/api/payment/create` | Crear pago |
+| GET | `/api/payment/success/:id_sales` | Ejecutar y confirmar pago |
+
+
