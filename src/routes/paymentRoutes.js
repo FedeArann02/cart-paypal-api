@@ -46,17 +46,24 @@ router.post("/create", authenticate, validateCreatePayment, validate, paypalCont
  *     tags:
  *       - Payment
  *     summary: Ejecutar y confirmar un pago
- *     description: Ejecuta el pago previamente aprobado por el usuario en PayPal.
- *       Requiere el identificador de la
- *       venta. Los parámetros paymentId y PayerID son proporcionados por PayPal
- *       después de que el usuario aprueba el pago. Si la ejecución es exitosa y los datos de la venta coinciden,
- *       la venta asociada se actualiza al estado CONFIRMADO.
+ *     description: |
+ *       Ejecuta y confirma el pago previamente aprobado por el usuario en PayPal.
+ *       Requiere el identificador de la venta. Los parámetros paymentId, token
+ *       y PayerID son proporcionados por PayPal después de que el usuario
+ *       aprueba el pago.
+ *
+ *       Si la ejecución es exitosa y los datos del pago coinciden con la venta,
+ *       la venta asociada se actualiza al estado APROBADO.
+ *
+ *       Este endpoint funciona como una URL de retorno (callback) utilizada
+ *       por PayPal después de completar el proceso de pago.
  *     parameters:
  *      - in: path
  *        name: id_sales
  *        required: true
  *        schema:
  *          type: integer
+ *          example: 1
  *        description: ID de la venta asociada al pago.
  *      - in: query
  *        name: paymentId
@@ -80,10 +87,8 @@ router.post("/create", authenticate, validateCreatePayment, validate, paypalCont
  *             schema:
  *               items:
  *                 $ref: '#/components/schemas/PayPalPaymentExecuteResponse'
- *       401:
- *         description: No autenticado o token inválido.
  *       500:
- *         description: Error al crear el pago en PayPal.
+ *         description: Error al ejecutar el pago en PayPal.
  */
 router.get("/success/:id_sales", validateExecutePayment, validate, paypalController.executePayment)
 

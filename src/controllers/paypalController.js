@@ -18,7 +18,7 @@ const createPayment = async (req, res, next) => {
         }))
 
         const redirectUrl = await PaymentService.create(mappedItems, sale.total, id_sales)
-        res.status(200).json({ redirectUrl:redirectUrl} )
+        res.status(200).json({ redirectUrl: redirectUrl })
 
     } catch (error) {
         next(error)
@@ -40,6 +40,11 @@ const executePayment = async (req, res, next) => {
         res.status(200).json({ payment })
 
     } catch (error) {
+
+        console.log("PAYPAL ERROR:")
+        console.log(error)
+        next(error)
+
         next(error)
     }
 }

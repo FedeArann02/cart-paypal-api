@@ -10,7 +10,7 @@ const create = (mappedItems, total, id_sales) => {
                 payment_method: "paypal"
             },
             redirect_urls: {
-                return_url: process.env.PAYPAL_RETURN_URL,
+                return_url:  `${process.env.PAYPAL_RETURN_URL}${id_sales}`,
                 cancel_url: process.env.PAYPAL_CANCEL_URL,
             },
             transactions: [{
@@ -56,11 +56,31 @@ const execute = async (id_sales, paymentId, PayerID) => {
         throw new Error("Missing PayPal payment data")
     }
 
-    const payment = await executePaypalPayment(
-        paymentId,
-        PayerID,
-        sale.total
-    )
+    const execute_payment_json = {
+        payer_id: PayerID,
+        transactions: [{
+            amount: {
+                currency: "USD",
+                total: sale.total.toString()
+            }
+        }]
+    }
+
+    const payment = await new Promise((resolve, reject) => {
+
+        paypal.payment.execute(
+            paymentId,
+            execute_payment_json,
+            (error, payment) => {
+
+                if (error) {
+                    return reject(error)
+                }
+
+                resolve(payment)
+            }
+        )
+    })
 
     if (payment.state !== "approved") {
         throw new Error("El pago no fue aprobado por PayPal")
@@ -69,7 +89,9 @@ const execute = async (id_sales, paymentId, PayerID) => {
     const paidAmount = payment.transactions[0].amount.total
 
     if (Number(paidAmount) !== Number(sale.total)) {
-        throw new Error("El importe del pago no coincide con el total de la venta")
+        throw new Error(
+            "El importe del pago no coincide con el total de la venta"
+        )
     }
 
     const currency = payment.transactions[0].amount.currency

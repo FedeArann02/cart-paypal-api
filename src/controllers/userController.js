@@ -1,24 +1,43 @@
 const authService = require("../services/AuthService")
+const userService = require("../services/userService")
 const userModel = require("../models/UserModel")
 
 const getUserBySupabaseId = async (req, res, next) => {
+
     const { id_auth_supabase } = req.params
+
     try {
-        const response = await userModel.getUserBySupabaseId(id_auth_supabase);
+
+        const response = await userService.getUserWithEmailBySupId(
+            id_auth_supabase
+        )
+
         res.status(200).json(response)
+
     } catch (error) {
+
         next(error)
+
     }
+
 }
 
 const getAllUsers = async (req, res, next) => {
+
     try {
-        const response = await userModel.getAllUsers();
+
+        const response = await userService.getAllUsersWithEmail()
+
         res.status(200).json(response)
+
     } catch (error) {
+
         next(error)
+
     }
+
 }
+
 
 const createUser = async (req, res, next) => {
     try {

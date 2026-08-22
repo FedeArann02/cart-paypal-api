@@ -4,14 +4,14 @@ const userController = require("../controllers/userController");
 const authenticate = require("../middleware/authenticate");
 const isAdmin = require("../middleware/isAdmin.js")
 const validate = require("../middleware/validate.js")
-const { validateBodyUser, validateParamIdAuthSupabase } = require("../validators/userValidator.js")
+const { validateCreateUser, validateParamIdAuthSupabase } = require("../validators/userValidator.js")
 
 /**
  * @swagger
  * /api/users/{id_auth_supabase}:
  *   get:
  *     security:
- *       - bearerAurth: []
+ *       - bearerAuth: []
  *     tags:
  *       - Users
  *     summary: Obtiene un usuario por su id_auth_supabase
@@ -42,7 +42,7 @@ router.get("/:id_auth_supabase", authenticate, validateParamIdAuthSupabase, vali
  * /api/users/:
  *   get:
  *     security:
- *       - bearerAurth: []
+ *       - bearerAuth: []
  *     tags:
  *       - Users
  *     summary: Obtiene todos los usuarios
@@ -67,7 +67,7 @@ router.get("/", authenticate, isAdmin, userController.getAllUsers)
  * /api/users/create:
  *   post:
  *     security:
- *       - bearerAurth: []
+ *       - bearerAuth: []
  *     tags:
  *       - Users
  *     summary: Crea un nuevo usuario
@@ -93,6 +93,6 @@ router.get("/", authenticate, isAdmin, userController.getAllUsers)
  *       409:
  *         description: El usuario ya existe
  */
-router.post("/create", authenticate, isAdmin, validateBodyUser, validate, userController.createUser)
+router.post("/create", authenticate, isAdmin, validateCreateUser, validate, userController.createUser)
 
 module.exports = router

@@ -63,6 +63,11 @@ const options = {
                             type: "string",
                             example: "admin",
                         },
+                        email: {
+                            type: "string",
+                            format: "email",
+                            example: "user@example.com",
+                        },
                         id_auth_supabase: {
                             type: "string",
                             description: "ID del usuario correspondiente en Supabase Auth",

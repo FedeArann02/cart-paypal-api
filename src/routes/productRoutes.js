@@ -35,7 +35,7 @@ router.get("/", productController.getAllProducts)
  *     summary: Obtiene un producto por su ID
  *     parameters:
  *       - in: path
- *         name: id
+ *         name: id_product
  *         required: true
  *         schema:
  *           type: integer
@@ -63,6 +63,12 @@ router.get("/:id", validateParamId, validate, productController.getProductById)
  *     description: Requiere autenticación mediante Bearer Token y permisos de administrador. Solo los usuarios con rol administrador pueden acceder a este recurso.
  *     security:
  *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: "#/components/schemas/ProductRequest"
  *     responses:
  *       201:
  *         description: producto Creado exitosamente
