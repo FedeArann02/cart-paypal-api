@@ -59,17 +59,7 @@ PORT=3000
 DB_USER=
 DB_PASSWORD=
 DB_HOST=
-DB_PORT=5432
-DB_NAME=
-
-SUPABASE_URL=
-SUPABASE_ANON_KEY=
-
-PAYPAL_MODE=
-PAYPAL_CLIENT_ID=
-PAYPAL_CLIENT_SECRET=
-PAYPAL_RETURN_URL=
-PAYPAL_CANCEL_URL=
+...
 ```
 ---
 
@@ -236,8 +226,36 @@ authenticate → isAdmin → controller
 | POST | `/api/payment/create` | Crear pago |
 | GET | `/api/payment/success/:id_sales` | Ejecutar y confirmar pago |
 
+
 Para consultar todos los endpoints, parámetros, esquemas de solicitud y respuesta, consultar la documentación interactiva de Swagger:
 ```http
  http://localhost:3000/api-docs
 ```
 
+## Capturas de Swagger
+
+La API cuenta con documentación interactiva mediante Swagger UI.
+
+### Documentación general
+
+![Swagger - Documentación general](./docs/images/swagger-general.png)
+
+### Autenticación
+
+![Swagger - Auth](./docs/images/swagger-auth.png)
+
+### Usuarios
+
+![Swagger - Users](./docs/images/swagger-users.png)
+
+### Productos
+
+![Swagger - Products](./docs/images/swagger-products.png)
+
+### Carrito y ventas
+
+![Swagger - Cart](./docs/images/swagger-cart.png)
+
+### Pagos
+
+![Swagger - Payment](./docs/images/swagger-payment.png)
