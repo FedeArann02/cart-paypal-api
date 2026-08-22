@@ -160,3 +160,10 @@ Para registrar un nuevo usuario:
 ```http
 POST /api/auth/signup
 ```
+Ejemplo:
+```JSON
+{
+    "email": "usuario@email.com",
+    "password": "password123"
+}
+```
