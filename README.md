@@ -11,13 +11,13 @@ El proyecto cuenta con autenticación mediante Bearer Token, autorización basad
 ## Tecnologías utilizadas
 
 <p align="center">
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" width="60" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" width="60" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" width="60" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg" width="60" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" width="60" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/paypal/paypal-original.svg" width="60" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swagger/swagger-original.svg" width="60" />
+  <img src="https://cdn.jsdelivr.net/npm/devicon@2.17.0/icons/nodejs/nodejs-original.svg" width="60" alt="Node.js" title="Node.js" />
+  <img src="https://cdn.jsdelivr.net/npm/devicon@2.17.0/icons/express/express-original.svg" width="60" alt="Express" title="Express" />
+  <img src="https://cdn.jsdelivr.net/npm/devicon@2.17.0/icons/postgresql/postgresql-original.svg" width="60" alt="PostgreSQL" title="PostgreSQL" />
+  <img src="https://cdn.jsdelivr.net/npm/devicon@2.17.0/icons/supabase/supabase-original.svg" width="60" alt="Supabase" title="Supabase" />
+  <img src="https://cdn.jsdelivr.net/npm/devicon@2.17.0/icons/javascript/javascript-original.svg" width="60" alt="JavaScript" title="JavaScript" />
+  <img src="https://cdn.jsdelivr.net/npm/simple-icons@16.28.0/icons/paypal.svg" width="60" alt="PayPal" title="PayPal" />
+  <img src="https://cdn.jsdelivr.net/npm/simple-icons@16.28.0/icons/swagger.svg" width="60" alt="Swagger" title="Swagger" />
 </p>
 
 **Backend:** Node.js · Express
@@ -31,6 +31,7 @@ El proyecto cuenta con autenticación mediante Bearer Token, autorización basad
 **Documentation:** Swagger / OpenAPI
 
 **Validation:** express-validator
+
 ## Requisitos
 
 - Node.js
