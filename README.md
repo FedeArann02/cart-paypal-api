@@ -10,17 +10,12 @@ El proyecto cuenta con autenticación mediante Bearer Token, autorización basad
 
 ## Tecnologías utilizadas
 
-- Node.js
-- Express
-- PostgreSQL
-- Supabase Auth
-- PayPal REST SDK
-- Swagger / OpenAPI
-- express-validator
-- Helmet
-- CORS
-- Morgan
-- Nodemon
+Backend: Node.js · Express
+Database: PostgreSQL · Supabase
+Authentication: Supabase Auth
+Payments: PayPal Sandbox
+Documentation: Swagger / OpenAPI
+Validation: express-validator
 
 ---
 
