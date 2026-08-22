@@ -51,16 +51,15 @@ El proyecto cuenta con autenticación mediante Bearer Token, autorización basad
 <br>
 
 **Backend:** Node.js · Express
+
 **Database:** PostgreSQL · Supabase
+
 **Authentication:** Supabase Auth
+
 **Payments:** PayPal Sandbox
+
 **Documentation:** Swagger / OpenAPI
-**Validation:** express-validator
-**Backend:** Node.js · Express
-**Database:** PostgreSQL · Supabase
-**Authentication:** Supabase Auth
-**Payments:** PayPal Sandbox
-**Documentation:** Swagger / OpenAPI
+
 **Validation:** express-validator
 
 ---
