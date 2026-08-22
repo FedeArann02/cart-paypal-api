@@ -10,12 +10,16 @@ El proyecto cuenta con autenticación mediante Bearer Token, autorización basad
 
 ## Tecnologías utilizadas
 
-Backend: Node.js · Express
-Database: PostgreSQL · Supabase
-Authentication: Supabase Auth
-Payments: PayPal Sandbox
-Documentation: Swagger / OpenAPI
-Validation: express-validator
+<p align="center">
+  <img src="..." width="50" />
+  <img src="..." width="50" />
+  <img src="..." width="50" />
+  <img src="..." width="50" />
+</p>
+
+<p align="center">
+  Node.js • Express • PostgreSQL • Supabase • PayPal • Swagger
+</p>
 
 ---
 
