@@ -11,16 +11,24 @@ El proyecto cuenta con autenticación mediante Bearer Token, autorización basad
 ## Tecnologías utilizadas
 
 <p align="center">
-  <img src="..." width="50" />
-  <img src="..." width="50" />
-  <img src="..." width="50" />
-  <img src="..." width="50" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" width="60" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" width="60" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" width="60" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg" width="60" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" width="60" />
 </p>
 
-<p align="center">
-  Node.js • Express • PostgreSQL • Supabase • PayPal • Swagger
-</p>
+**Backend:** Node.js · Express
 
+**Database:** PostgreSQL · Supabase
+
+**Authentication:** Supabase Auth
+
+**Payments:** PayPal Sandbox
+
+**Documentation:** Swagger / OpenAPI
+
+**Validation:** express-validator
 ---
 
 ## Requisitos
