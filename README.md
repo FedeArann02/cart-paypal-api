@@ -83,7 +83,6 @@ Por defecto, la API estará disponible en: http://localhost:3000
 ---
 
 ## Swagger
-
 La API cuenta con documentación interactiva mediante Swagger UI.
 Una vez iniciado el servidor, puede accederse a la documentación desde: http://localhost:3000/api-docs
 
@@ -94,11 +93,9 @@ Una vez iniciado el servidor, puede accederse a la documentación desde: http://
 El proyecto utiliza Supabase Auth para gestionar el registro y autenticación de usuarios.
 
 ### 1. Crear un proyecto
-
 Crear un proyecto desde el panel de Supabase.
 
 ### 2. Obtener las credenciales
-
 Desde la configuración del proyecto, obtener:
 
 - `SUPABASE_URL`
@@ -115,9 +112,51 @@ SUPABASE_ANON_KEY=
 
 La API utiliza PostgreSQL para almacenar la información relacionada con:
 
--Usuarios
--Productos
--Ventas
--Detalles de ventas
+- Usuarios
+- Productos
+- Ventas
+- Detalles de ventas
 
 El identificador generado por Supabase Auth se almacena en la base de datos como id_auth_supabase, permitiendo relacionar el usuario autenticado con su registro dentro de la aplicación.
+
+---
+
+## Configuración de PayPal Sandbox
+
+El proyecto utiliza PayPal Sandbox para realizar pruebas de pago sin utilizar dinero real.
+Si usted desea utilizarlo en modo Live debe cumplir con los requisitos de PayPal validando sus datos personales.
+
+1. Crear una cuenta de desarrollador
+Crear una cuenta en PayPal Developer y acceder al entorno Sandbox.
+
+2. Crear una aplicación
+Crear una aplicación dentro de las aplicaciones de Sandbox y obtener:
+
+- Client ID
+- Client Secret
+
+Estas credenciales deben agregarse al archivo .env.
+```env
+PAYPAL_MODE=sandbox
+PAYPAL_CLIENT_ID=
+PAYPAL_CLIENT_SECRET=
+PAYPAL_RETURN_URL=
+PAYPAL_CANCEL_URL=
+```
+
+3. Utilizar una cuenta Sandbox
+Para realizar las pruebas de pago se debe utilizar una cuenta de comprador Sandbox.
+
+La API genera una URL de aprobación de PayPal que permite al usuario completar el proceso de pago.
+
+## Autenticación
+La autenticación de usuarios es gestionada mediante Supabase Auth.
+
+El flujo principal de autenticación es:
+Registro → Inicio de sesión → Bearer Token → Endpoints protegidos
+
+### Registro
+Para registrar un nuevo usuario: 
+```http
+POST /api/auth/signup
+```
