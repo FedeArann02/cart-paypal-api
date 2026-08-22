@@ -16,6 +16,8 @@ El proyecto cuenta con autenticación mediante Bearer Token, autorización basad
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" width="60" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg" width="60" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" width="60" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/paypal/paypal-original.svg" width="60" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swagger/swagger-original.svg" width="60" />
 </p>
 
 **Backend:** Node.js · Express
@@ -29,8 +31,6 @@ El proyecto cuenta con autenticación mediante Bearer Token, autorización basad
 **Documentation:** Swagger / OpenAPI
 
 **Validation:** express-validator
----
-
 ## Requisitos
 
 - Node.js
