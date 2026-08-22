@@ -236,9 +236,8 @@ authenticate → isAdmin → controller
 | POST | `/api/payment/create` | Crear pago |
 | GET | `/api/payment/success/:id_sales` | Ejecutar y confirmar pago |
 
-Para consultar todos los endpoints, parámetros, esquemas de solicitud y respuesta, consultar la documentación interactiva de Swagger.
-
+Para consultar todos los endpoints, parámetros, esquemas de solicitud y respuesta, consultar la documentación interactiva de Swagger:
 ```http
-http://localhost:3000/api-docs
+ http://localhost:3000/api-docs
 ```
 
