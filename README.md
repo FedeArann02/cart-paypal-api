@@ -136,6 +136,7 @@ Estas variables deben agregarse al archivo `.env`.
 ```env
 SUPABASE_URL=
 SUPABASE_ANON_KEY=
+SUPABASE_SERVICE_ROLE_KEY=
 ```
 
 ### 3. Configurar la base de datos
