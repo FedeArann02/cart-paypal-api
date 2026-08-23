@@ -8,9 +8,14 @@ const options = {
             version: "1.0.0",
             description: "Esta API permite gestionar PRODUCTOS, VENTAS, PAGOS MEDIANTE PAYPAL Y USUARIOS. Es un modelo de Ecommerce básico pero seguro, utilizando servicios de Authentication de Supabase permitiendo utilizar correo electrónico para logearse y dando seguridad a la API mediante JWT.",
         },
-        servers: [ //estea array es para que swagger interprete que sea un combo box
+        servers: [
             {
-                url: ""
+                url: "http://localhost:3000",
+                description: "Servidor local"
+            },
+            {
+                url: "https://tu-api-en-produccion.com/api",
+                description: "Servidor de producción"
             }
         ],
         components: {
