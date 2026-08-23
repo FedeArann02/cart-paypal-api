@@ -279,11 +279,11 @@ La API cuenta con documentación interactiva mediante Swagger UI.
 
 ### Documentación general
 
-![Swagger - Documentación general](./docs/images/swagger-general.png)
+![Swagger - Documentación general](src/docs/images/swagger-general.png)
 
 ### Autenticación
 
-![Swagger - Auth](./docs/images/swagger-auth.png)
+![Swagger - Auth](src/docs/images/swagger-auth.png)
 
 ### Usuarios
 
