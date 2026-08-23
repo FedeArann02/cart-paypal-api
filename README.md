@@ -287,16 +287,16 @@ La API cuenta con documentación interactiva mediante Swagger UI.
 
 ### Usuarios
 
-![Swagger - Users](./docs/images/swagger-users.png)
+![Swagger - Users](src/docs/images/swagger-users.png)
 
 ### Productos
 
-![Swagger - Products](./docs/images/swagger-products.png)
+![Swagger - Products](src/docs/images/swagger-products.png)
 
 ### Carrito y ventas
 
-![Swagger - Cart](./docs/images/swagger-cart.png)
+![Swagger - Cart](src/docs/images/swagger-cart.png)
 
 ### Pagos
 
-![Swagger - Payment](./docs/images/swagger-payment.png)
+![Swagger - Payment](src/docs/images/swagger-payment.png)
