@@ -10,12 +10,12 @@ const options = {
         },
         servers: [
             {
-                url: "http://localhost:3000",
-                description: "Servidor local"
+                url: "https://cart-paypal-api.onrender.com/api-docs/#/",
+                description: "Servidor de producción"
             },
             {
-                url: "https://tu-api-en-produccion.com/api",
-                description: "Servidor de producción"
+                url: "http://localhost:3000",
+                description: "Servidor local"
             }
         ],
         components: {
