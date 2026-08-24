@@ -1,5 +1,5 @@
 const authService = require("../services/AuthService")
-const userService = require("../services/userService")
+const userService = require("../services/UserService")
 const userModel = require("../models/UserModel")
 
 const getUserBySupabaseId = async (req, res, next) => {
