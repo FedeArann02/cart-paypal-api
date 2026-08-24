@@ -333,7 +333,7 @@ const options = {
 const swaggerSpec = swaggerJSDoc(options);
 const setupSwaggerDocs = (app) => {
     app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerSpec)) //ruta de documentacion de APIS
-    console.log("Swagger docs disponible en la ruta https://servidor-tareas-express-ykew.onrender.com/api-docs")
+    console.log("Swagger docs disponible en la ruta https://cart-paypal-api.onrender.com/api-docs")
 }
 
 module.exports = setupSwaggerDocs
