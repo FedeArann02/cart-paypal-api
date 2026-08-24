@@ -19,45 +19,15 @@ La API se encuentra desplegada en Render y cuenta con documentación interactiva
 
 ---
 
-### Tecnologías utilizadas
+## Tecnologías utilizadas
 
-<p align="center">
-  <img src="https://cdn.jsdelivr.net/npm/devicon@2.17.0/icons/nodejs/nodejs-original.svg" width="60" alt="Node.js" title="Node.js" />
-  &nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="https://cdn.jsdelivr.net/npm/devicon@2.17.0/icons/express/express-original.svg" width="60" alt="Express" title="Express" />
-  &nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="https://cdn.jsdelivr.net/npm/devicon@2.17.0/icons/postgresql/postgresql-original.svg" width="60" alt="PostgreSQL" title="PostgreSQL" />
-  &nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="https://cdn.jsdelivr.net/npm/devicon@2.17.0/icons/supabase/supabase-original.svg" width="60" alt="Supabase" title="Supabase" />
-</p>
-
-<p align="center">
-  <strong>Node.js</strong>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <strong>Express</strong>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <strong>PostgreSQL</strong>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <strong>Supabase</strong>
-</p>
-
-<br>
-
-<p align="center">
-  <img src="https://cdn.jsdelivr.net/npm/devicon@2.17.0/icons/javascript/javascript-original.svg" width="60" alt="JavaScript" title="JavaScript" />
-  &nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="https://cdn.jsdelivr.net/npm/simple-icons@16.28.0/icons/paypal.svg" width="60" alt="PayPal" title="PayPal" />
-  &nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="https://cdn.jsdelivr.net/npm/simple-icons@16.28.0/icons/swagger.svg" width="60" alt="Swagger" title="Swagger" />
-</p>
-
-<p align="center">
-  <strong>JavaScript</strong>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <strong>PayPal</strong>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <strong>Swagger / OpenAPI</strong>
-</p>
+![Node.js](https://img.shields.io/badge/Node.js-339933?logo=node.js&logoColor=white)
+![Express](https://img.shields.io/badge/Express-000000?logo=express&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?logo=postgresql&logoColor=white)
+![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?logo=supabase&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
+![PayPal](https://img.shields.io/badge/PayPal-00457C?logo=paypal&logoColor=white)
+![Swagger](https://img.shields.io/badge/Swagger-85EA2D?logo=swagger&logoColor=black)
 
 <br>
 
