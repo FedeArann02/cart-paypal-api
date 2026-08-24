@@ -27,6 +27,6 @@ app.use("/api/products", productRoutes)
 
 app.use(errorHandler)
 
-app.listen(PORT, "0.0.0.0", () => {
+app.listen(PORT, () => {
     console.log(`Servidor corriendo en puerto ${PORT}`)
 })
