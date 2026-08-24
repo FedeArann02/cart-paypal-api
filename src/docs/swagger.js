@@ -10,7 +10,7 @@ const options = {
         },
         servers: [
             {
-                url: "https://cart-paypal-api.onrender.com/api-docs/#/",
+                url: "https://cart-paypal-api.onrender.com/",
                 description: "Servidor de producción"
             },
             {
