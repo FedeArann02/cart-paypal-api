@@ -6,6 +6,12 @@ La API utiliza Supabase Auth para la autenticación de usuarios, PostgreSQL como
 
 El proyecto cuenta con autenticación mediante Bearer Token, autorización basada en roles, validación de datos, manejo centralizado de errores y documentación interactiva mediante Swagger.
 
+### API en producción
+
+La API se encuentra desplegada en Render y cuenta con documentación interactiva mediante Swagger.
+
+👉 **[Probar la API en Swagger](https://cart-paypal-api.onrender.com/api-docs/#/)**
+
 ---
 
 ### Tecnologías utilizadas
