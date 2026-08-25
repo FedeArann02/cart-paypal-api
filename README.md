@@ -251,7 +251,7 @@ authenticate → isAdmin → controller
 
 Para consultar todos los endpoints, parámetros, esquemas de solicitud y respuesta, consultar la documentación interactiva de Swagger:
 ```http
- https://api.onrender.com/api-docs/#/
+https://cart-paypal-api.onrender.com/api-docs/#/
 ```
 
 ## Capturas de Swagger
