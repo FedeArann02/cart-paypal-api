@@ -254,6 +254,13 @@ Para consultar todos los endpoints, parámetros, esquemas de solicitud y respues
 https://cart-paypal-api.onrender.com/api-docs/#/
 ```
 
+---
+
+## Arquitectura del proyecto
+![Diagrama de componentes simplificado](src/docs/images/Diagrama_de_componentes_simplificado.png)
+
+---
+
 ## Capturas de Swagger
 
 La API cuenta con documentación interactiva mediante Swagger UI.
